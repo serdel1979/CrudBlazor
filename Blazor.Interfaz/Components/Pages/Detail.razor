@@ -43,6 +43,10 @@
         {
             film = await FilmService.GetFilm(Id);
         }
+        else
+        {
+            film.id = Id;
+        }
     }
 
 
