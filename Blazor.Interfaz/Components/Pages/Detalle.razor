@@ -1,0 +1,65 @@
+﻿@page "/detalle"
+@page "/detalle/{Id:int}"
+
+@using Blazor.Model
+@using Interfaces
+
+@inject IFilmService filmService
+
+
+<h3>Detalle</h3>
+
+
+<EditForm Model="film" OnValidSubmit="save" FormName="films">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+     <div class="mb-3">
+        <label class="form-label">Titulo</label>
+        <InputText class="form-control" @bind-Value="film!.titulo" />
+    </div>
+     <div class="mb-3">
+        <label class="form-label">Director</label>
+        <InputText class="form-control" @bind-Value="film!.director" />
+    </div>
+     <div class="mb-3">
+        <label class="form-label">Release</label>
+        <InputDate class="form-control" @bind-Value="film!.release" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-secondary" @onclick="cancel">Cancel</button>
+</EditForm>
+
+
+
+
+@code {
+    [Parameter]
+    public int Id { get; set; } = 0;
+
+
+    private Film? film = new Film();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(Id != 0)
+        {
+            film = await filmService.GetFilm(Id);
+        }
+        else
+        {
+            film.id = Id;
+        }
+    }
+
+    protected async Task save()
+    {
+        await filmService.Save(film);
+    }
+
+    protected void cancel()
+    {
+        
+    }
+
+}

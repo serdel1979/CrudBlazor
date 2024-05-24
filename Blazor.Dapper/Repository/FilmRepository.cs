@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using System.IO;
 
 namespace Blazor.Dapper.Repository
 {
@@ -57,14 +58,27 @@ namespace Blazor.Dapper.Repository
             return result;
         }
 
-        public Task<Film> GetFilm(int Id)
+        public async Task<Film> GetFilm(int Id)
         {
-            throw new NotImplementedException();
+            var db = dbConnection();
+            string sql = @"SELECT director, release, titulo FROM films WHERE id = @Id";
+
+            var result = await db.QueryFirstOrDefaultAsync<Film>(sql, new { Id });
+
+            return result;
         }
 
-        public Task<bool> Update(int Id, Film film)
+        public async Task<bool> Update(int Id, Film film)
         {
-            throw new NotImplementedException();
+            var db = dbConnection();
+            string query = @"UPDATE films
+                            SET director =  @director, release = @release, titulo = @titulo
+                            WHERE id = 1"
+            ;
+
+            var result = await db.ExecuteAsync(query, new { Id, film.director, film.release, film.titulo });
+
+            return result > 0;
         }
     }
 }

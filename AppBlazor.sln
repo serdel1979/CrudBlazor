@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Interfaz", "Blazor.Interfaz\Blazor.Interfaz.csproj", "{E8BA1077-D014-4EF7-BE78-2916F015E968}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Interfaz", "Blazor.Interfaz\Blazor.Interfaz.csproj", "{E8BA1077-D014-4EF7-BE78-2916F015E968}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Model", "Blazor.Model\Blazor.Model.csproj", "{A1675A01-F453-4B61-9A04-F81186B99943}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Model", "Blazor.Model\Blazor.Model.csproj", "{A1675A01-F453-4B61-9A04-F81186B99943}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Dapper", "Blazor.Dapper\Blazor.Dapper.csproj", "{A11456D2-C582-4E50-8F3D-18EF14F426AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Dapper", "Blazor.Dapper\Blazor.Dapper.csproj", "{A11456D2-C582-4E50-8F3D-18EF14F426AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
